@@ -9,16 +9,17 @@ env:
   global:
   - DEPLOY_BRANCH="gh-pages"
 
+  - secure: H0e/aL6ummZRSTJZK4Rj85QEPcK1pf4Pru2LmUQ/THtgBqf+QXVTI4cNcAKh0SnNH2ss6YfWZbgnQzFXEZc/uO9/bboCCCRyZp1vqztI8rfiO+xD7sBFikElEdSbg8jNjMnH9twVe39J3YBo9bwcxONo5A/0tqIEn6f3/IPgamKHB7zIJT+9MinAir7xMtqVSs5cn5aIRtz7dsWPZ0NCn8TlDJOVON2s+3zmES918hrce6AKkWHzASClI33gEmXRJ2bIa61ZP2fnD+pWYGjewy+M2DN/Q+g4P1c1GUiNYzZwYBMDQUkOUUOPV9yhYJeudnwXdO4ab8THN8d7Wdh+Fc8/++MCVrMwAaFVwfM2teS86R5WCMzIs3Cf4HyuYQqz6G3ABCEDFrSc1Ptix7klmfDSVJNRNvGe6BFTQYut6HBXoFcNEQcgSSw8VrUNZeBI9bHVO+Us5Emw1RY0FxphriH2tf1CU4Iqf+mmREgyEQ1lNyN/vuXT42jloKEH7XrBUefHzfUy3TIVUihmFrlxAKuMKCgbWuOLLeF5X6ZmLVl9Bwnviq5zrqqVn0IxHZy1Cz0HnkRZ8d4A7is8hcle8FHEQL4Fdggt6PE1+sVCuXoJtRUWJF7Uv4b4hcTsbM828znnqXkNKZYvbnpNULMO5r09XqYRXn7Ct5w1EtTMvtk=
 before_install:
-  - pip install --upgrade pip setuptools wheel
+- pip install --upgrade pip setuptools wheel
 install:
-  - pip install memote
+- pip install memote
 
 # Per default configuration, this will create a JSON file in `Results/`.
 script:
-  - git checkout "${TRAVIS_BRANCH}"
-  - memote run
+- git checkout "${TRAVIS_BRANCH}"
+- memote run
 
 # Changed from 'deploy' to 'after_script' so that we deploy even after failures.
 after_script:
-  - ./scripts/travis_deploy.sh
+- ./scripts/travis_deploy.sh
